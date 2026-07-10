@@ -1,0 +1,62 @@
+.DS_Store
+*.pyc
+__pycache__/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Environment
+.env
+.env.local
+.env.*.local
+.venv/
+venv/
+ENV/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.classpath
+
+# Node
+node_modules/
+npm-debug.log
+yarn-error.log
+.next/
+out/
+dist/
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# Storage
+minio_data/
+s3_data/
+
+# Models
+models/
+*.pt
+*.pth
+*.onnx
+
+# Logs
+logs/
+*.log
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Build
+build/
+*.egg-info/
+.eggs/
+
+# Docker
+.dockerignore

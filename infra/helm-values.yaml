@@ -1,0 +1,77 @@
+# Helm values for OmniSight deployment
+# Usage: helm install omnisight ./helm -f values.yaml
+
+replicaCount: 3
+
+image:
+  repository: omnisight
+  tag: latest
+  pullPolicy: Always
+
+api:
+  replicas: 3
+  resources:
+    requests:
+      memory: "512Mi"
+      cpu: "500m"
+    limits:
+      memory: "1Gi"
+      cpu: "1000m"
+
+workers:
+  detection:
+    replicas: 2
+    resources:
+      requests:
+        memory: "2Gi"
+        cpu: "1000m"
+      limits:
+        memory: "4Gi"
+        cpu: "2000m"
+  
+  transcription:
+    replicas: 1
+    resources:
+      requests:
+        memory: "2Gi"
+        cpu: "1000m"
+      limits:
+        memory: "4Gi"
+        cpu: "2000m"
+  
+  embeddings:
+    replicas: 1
+    resources:
+      requests:
+        memory: "1Gi"
+        cpu: "1000m"
+      limits:
+        memory: "2Gi"
+        cpu: "2000m"
+
+database:
+  host: postgres
+  port: 5432
+  name: omnisight
+
+redis:
+  host: redis
+  port: 6379
+
+qdrant:
+  host: qdrant
+  port: 6333
+
+storage:
+  s3:
+    endpoint: http://minio:9000
+    bucket: omnisight-videos
+
+ingress:
+  enabled: true
+  className: nginx
+  hosts:
+    - host: omnisight.example.com
+      paths:
+        - path: /
+          pathType: Prefix

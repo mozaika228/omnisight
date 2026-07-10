@@ -1,0 +1,18 @@
+"""
+Git commit message template and guidelines for OmniSight
+"""
+
+# Format: <type>(<scope>): <subject>
+# Types: feat, fix, docs, style, refactor, perf, test, chore
+# Examples:
+# feat(api): add video upload endpoint
+# fix(detection): correct YOLO model loading
+# docs(architecture): update component diagram
+# test(search): add semantic search tests
+
+# Body (optional, wrap at 72 chars)
+# - Explain what was changed and why
+# - One item per bullet point
+
+# Footer (optional)
+# Closes #123
