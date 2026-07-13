@@ -14,6 +14,7 @@ if REPO_ROOT not in sys.path:
   sys.path.insert(0, REPO_ROOT)
 
 from indexer.typescript_parser import parse_repository_typescript
+from indexer.resolver.semantic_resolver import TypeScriptSemanticResolver
 
 
 def write_sample(root: str):
@@ -40,6 +41,29 @@ function helper() {
   console.log('helper')
 }
 '''
+    # Add richer constructs
+    sample += '''
+
+/**
+ * Auth interface
+ */
+export interface Auth {
+  userId: string;
+  token: string;
+}
+
+enum Status { Ok, Error }
+
+type ID = string | number
+
+@decorator()
+export class Controller extends Service implements Runnable {
+  constructor(private repo) { super(); }
+  handle(req: Request): Response {
+    return helper();
+  }
+}
+'''
     p = os.path.join(root, "sample.ts")
     with open(p, "w", encoding="utf-8") as fh:
         fh.write(sample)
@@ -54,7 +78,17 @@ def main():
     repo = parse_repository_typescript(tmp)
     print(f"Files: {len(repo.files)}")
     for path, f in repo.files.items():
-        print(f"- {path}: symbols={len(f.symbols)}, imports={len(f.imports)}, functions={len(f.functions)}")
+      print(f"- {path}: symbols={len(f.symbols)}, imports={len(f.imports)}, functions={len(f.functions)}")
+      for s in f.symbols:
+        print(f"  * SYMBOL: id={s.id} name={s.name} kind={s.kind} loc={s.location}")
+
+    # Run a semantic resolver example
+    resolver = TypeScriptSemanticResolver(repo)
+    # Example: resolve call 'helper' across repository
+    matches = resolver.resolve_call('helper')
+    print(f"Resolved 'helper' -> {len(matches)} matches")
+    for m in matches:
+        print(f"  - {m.id} ({m.kind}) @ {m.location}")
 
 
 if __name__ == '__main__':

@@ -1,0 +1,169 @@
+{
+  "nodes": [
+    {
+      "id": "scripts/devgraph.py",
+      "label": "devgraph.py",
+      "path": "scripts/devgraph.py",
+      "language": "python",
+      "group": "scripts"
+    },
+    {
+      "id": "scripts/init_db.py",
+      "label": "init_db.py",
+      "path": "scripts/init_db.py",
+      "language": "python",
+      "group": "scripts"
+    },
+    {
+      "id": "scripts/run-local.py",
+      "label": "run-local.py",
+      "path": "scripts/run-local.py",
+      "language": "python",
+      "group": "scripts"
+    },
+    {
+      "id": "scripts/setup.py",
+      "label": "setup.py",
+      "path": "scripts/setup.py",
+      "language": "python",
+      "group": "scripts"
+    },
+    {
+      "id": "scripts/setup_database.py",
+      "label": "setup_database.py",
+      "path": "scripts/setup_database.py",
+      "language": "python",
+      "group": "scripts"
+    },
+    {
+      "id": "apps/api/config.py",
+      "label": "config.py",
+      "path": "apps/api/config.py",
+      "language": "python",
+      "group": "apps"
+    },
+    {
+      "id": "apps/api/main.py",
+      "label": "main.py",
+      "path": "apps/api/main.py",
+      "language": "python",
+      "group": "apps"
+    },
+    {
+      "id": "apps/api/__init__.py",
+      "label": "__init__.py",
+      "path": "apps/api/__init__.py",
+      "language": "python",
+      "group": "apps"
+    },
+    {
+      "id": "apps/web/next.config.ts",
+      "label": "next.config.ts",
+      "path": "apps/web/next.config.ts",
+      "language": "typescript",
+      "group": "apps"
+    },
+    {
+      "id": "apps/web/postcss.config.js",
+      "label": "postcss.config.js",
+      "path": "apps/web/postcss.config.js",
+      "language": "javascript",
+      "group": "apps"
+    },
+    {
+      "id": "apps/web/tailwind.config.js",
+      "label": "tailwind.config.js",
+      "path": "apps/web/tailwind.config.js",
+      "language": "javascript",
+      "group": "apps"
+    },
+    {
+      "id": "apps/web/src/pages/index.tsx",
+      "label": "index.tsx",
+      "path": "apps/web/src/pages/index.tsx",
+      "language": "typescript",
+      "group": "apps"
+    },
+    {
+      "id": "apps/web/src/pages/_app.tsx",
+      "label": "_app.tsx",
+      "path": "apps/web/src/pages/_app.tsx",
+      "language": "typescript",
+      "group": "apps"
+    },
+    {
+      "id": "apps/web/src/pages/../styles/globals.css",
+      "label": "globals.css",
+      "path": "apps/web/src/pages/../styles/globals.css",
+      "language": "typescript",
+      "group": "apps"
+    },
+    {
+      "id": "packages/shared/__init__.py",
+      "label": "__init__.py",
+      "path": "packages/shared/__init__.py",
+      "language": "python",
+      "group": "packages"
+    },
+    {
+      "id": "services/detection/__init__.py",
+      "label": "__init__.py",
+      "path": "services/detection/__init__.py",
+      "language": "python",
+      "group": "services"
+    },
+    {
+      "id": "services/embeddings/__init__.py",
+      "label": "__init__.py",
+      "path": "services/embeddings/__init__.py",
+      "language": "python",
+      "group": "services"
+    },
+    {
+      "id": "services/indexing/__init__.py",
+      "label": "__init__.py",
+      "path": "services/indexing/__init__.py",
+      "language": "python",
+      "group": "services"
+    },
+    {
+      "id": "services/ingestion/__init__.py",
+      "label": "__init__.py",
+      "path": "services/ingestion/__init__.py",
+      "language": "python",
+      "group": "services"
+    },
+    {
+      "id": "services/llm/__init__.py",
+      "label": "__init__.py",
+      "path": "services/llm/__init__.py",
+      "language": "python",
+      "group": "services"
+    },
+    {
+      "id": "services/search/__init__.py",
+      "label": "__init__.py",
+      "path": "services/search/__init__.py",
+      "language": "python",
+      "group": "services"
+    },
+    {
+      "id": "services/transcription/__init__.py",
+      "label": "__init__.py",
+      "path": "services/transcription/__init__.py",
+      "language": "python",
+      "group": "services"
+    }
+  ],
+  "edges": [
+    {
+      "source": "apps/web/src/pages/_app.tsx",
+      "target": "apps/web/src/pages/../styles/globals.css",
+      "import": "../styles/globals.css"
+    }
+  ],
+  "stats": {
+    "files": 22,
+    "links": 1
+  }
+}
