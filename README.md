@@ -309,13 +309,7 @@ pytest
 
 This project is licensed under the MIT License - see [LICENSE](LICENSE) file for details.
 
-## 🙋 Support
-
-- **Issues:** [GitHub Issues](https://github.com/omnisight/omnisight/issues)
-- **Discussions:** [GitHub Discussions](https://github.com/omnisight/omnisight/discussions)
-- **Email:** support@omnisight.dev
-
-## 🗺️ Roadmap
+## ️ Roadmap
 
 See [ROADMAP.md](docs/ROADMAP.md) for detailed development phases and timelines.
 
