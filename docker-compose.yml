@@ -116,8 +116,9 @@ services:
       ENABLE_GPU: "false"  # Set to true if NVIDIA GPU available
       DEVICE: cpu  # cuda or cpu
     volumes:
-      - ./apps/api:/app
+      - ./apps/api:/app/apps/api
       - model_cache:/root/.cache
+      - upload_data:/app/data/uploads
     depends_on:
       postgres:
         condition: service_healthy
@@ -150,6 +151,7 @@ services:
     volumes:
       - ./services:/app/services
       - model_cache:/root/.cache
+      - upload_data:/app/data/uploads
     depends_on:
       - postgres
       - redis
@@ -157,7 +159,7 @@ services:
       - minio
     networks:
       - omnisight
-    command: celery -A services.detection.tasks worker --loglevel=info -Q detection
+    command: celery -A services.pipeline.tasks.celery_app worker --loglevel=info
 
   # Celery Worker for Transcription
   worker_transcription:
@@ -178,6 +180,7 @@ services:
     volumes:
       - ./services:/app/services
       - model_cache:/root/.cache
+      - upload_data:/app/data/uploads
     depends_on:
       - postgres
       - redis
@@ -185,7 +188,7 @@ services:
       - minio
     networks:
       - omnisight
-    command: celery -A services.transcription.tasks worker --loglevel=info -Q transcription
+    command: celery -A services.pipeline.tasks.celery_app worker --loglevel=info
 
   # Celery Worker for Embeddings
   worker_embeddings:
@@ -208,6 +211,7 @@ services:
     volumes:
       - ./services:/app/services
       - model_cache:/root/.cache
+      - upload_data:/app/data/uploads
     depends_on:
       - postgres
       - redis
@@ -215,7 +219,7 @@ services:
       - minio
     networks:
       - omnisight
-    command: celery -A services.embeddings.tasks worker --loglevel=info -Q embeddings
+    command: celery -A services.pipeline.tasks.celery_app worker --loglevel=info
 
   # Frontend
   web:
@@ -240,6 +244,7 @@ volumes:
   redis_data:
   minio_data:
   model_cache:
+  upload_data:
 
 networks:
   omnisight:

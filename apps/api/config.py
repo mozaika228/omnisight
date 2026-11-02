@@ -20,6 +20,8 @@ class Settings(BaseSettings):
     
     # Redis
     REDIS_URL: str = "redis://localhost:6379/0"
+    CELERY_BROKER: str = "redis://localhost:6379/0"
+    CELERY_RESULT_BACKEND: str = "redis://localhost:6379/1"
     
     # Qdrant
     QDRANT_URL: str = "http://localhost:6333"
@@ -39,6 +41,10 @@ class Settings(BaseSettings):
     # Hardware
     DEVICE: str = "cpu"  # cuda or cpu
     ENABLE_GPU: bool = False
+    FRAME_SAMPLE_SECONDS: float = 1.0
+    UPLOAD_DIR: str = "data/uploads"
+    MAX_UPLOAD_BYTES: int = 5 * 1024 * 1024 * 1024
+    TASKS_EAGER: bool = False
     
     # Logging
     LOG_LEVEL: str = "info"
